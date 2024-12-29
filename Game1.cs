@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -9,6 +11,8 @@ public class Game1 : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
+    private SceneManager _sceneManager;
+    private TestGameObject _test;
 
     public Game1()
     {
@@ -19,34 +23,35 @@ public class Game1 : Game
 
     protected override void Initialize()
     {
-        // TODO: Add your initialization logic here
-
         base.Initialize();
     }
 
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
+        _sceneManager = new SceneManager();
 
-        // TODO: use this.Content to load your game content here
+        Texture2D texture = Content.Load<Texture2D>("whitePixel");
+        _test = new TestGameObject(texture, Vector2.Zero);
+        _sceneManager.AddGameObject(_test);
     }
 
     protected override void Update(GameTime gameTime)
     {
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+        if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+        {
             Exit();
-
-        // TODO: Add your update logic here
-
+        }
+        _sceneManager.Update(gameTime);
         base.Update(gameTime);
     }
 
     protected override void Draw(GameTime gameTime)
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
-
-        // TODO: Add your drawing code here
-
+        _spriteBatch.Begin();
+        _sceneManager.Draw(_spriteBatch);
+        _spriteBatch.End();
         base.Draw(gameTime);
     }
 }
