@@ -4,11 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Mathi/Desktop/Dev/untitled-game/Content/idk.png</File>
     <File>C:/Users/Mathi/Desktop/Dev/untitled-game/Content/whitepixel.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

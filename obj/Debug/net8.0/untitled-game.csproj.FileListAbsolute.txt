@@ -25,4 +25,3 @@ c:\Users\Mathi\Desktop\Dev\untitled-game\obj\Debug\net8.0\untitled-game.pdb
 c:\Users\Mathi\Desktop\Dev\untitled-game\obj\Debug\net8.0\untitled-game.genruntimeconfig.cache
 c:\Users\Mathi\Desktop\Dev\untitled-game\obj\Debug\net8.0\ref\untitled-game.dll
 c:\Users\Mathi\Desktop\Dev\untitled-game\bin\Debug\net8.0\Content\whitepixel.xnb
-C:\Users\Mathi\Desktop\Dev\untitled-game\bin\Debug\net8.0\Content\idk.xnb
