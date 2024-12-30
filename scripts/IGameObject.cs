@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -15,13 +12,13 @@ public interface IGameObject
 
 public class TestGameObject : IGameObject
 {
-    private SpriteRenderer _spriteRenderer;
+    private Texture2D _texture;
 
     public Vector2 Position { get; set; }
 
     public TestGameObject(Texture2D texture)
     {
-        _spriteRenderer = new SpriteRenderer(texture);
+        _texture = texture;
     }
 
     public void Update(GameTime gameTime)
@@ -46,6 +43,6 @@ public class TestGameObject : IGameObject
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        _spriteRenderer.Draw(spriteBatch, Position, 50);
+        spriteBatch.Draw(_texture, Position, null, Color.White, 0, Vector2.Zero, 50, SpriteEffects.None, 0);
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -19,6 +16,7 @@ public class Game1 : Game
         _graphics = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
+        Window.AllowUserResizing = true;
     }
 
     protected override void Initialize()
@@ -31,8 +29,8 @@ public class Game1 : Game
         _spriteBatch = new SpriteBatch(GraphicsDevice);
         _sceneManager = new SceneManager();
 
-        Texture2D texture = Content.Load<Texture2D>("whitePixel");
-        _test = new TestGameObject(texture);
+        Texture2D whitePixel = Content.Load<Texture2D>("whitePixel");
+        _test = new TestGameObject(whitePixel);
         _sceneManager.AddGameObject(_test);
     }
 

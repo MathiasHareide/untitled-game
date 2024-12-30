@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Mathi\\Desktop\\Dev\\untitled-game\\untitled-game.csproj": {}
+    "C:\\Users\\Mathi\\Desktop\\Dev\\untitled-game\\untitled-game.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Mathi\\Desktop\\Dev\\untitled-game\\untitled-game.csproj": {
+    "C:\\Users\\Mathi\\Desktop\\Dev\\untitled-game\\untitled-game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Mathi\\Desktop\\Dev\\untitled-game\\untitled-game.csproj",
+        "projectUniqueName": "C:\\Users\\Mathi\\Desktop\\Dev\\untitled-game\\untitled-game.csproj",
         "projectName": "untitled-game",
-        "projectPath": "c:\\Users\\Mathi\\Desktop\\Dev\\untitled-game\\untitled-game.csproj",
+        "projectPath": "C:\\Users\\Mathi\\Desktop\\Dev\\untitled-game\\untitled-game.csproj",
         "packagesPath": "C:\\Users\\Mathi\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Mathi\\Desktop\\Dev\\untitled-game\\obj\\",
+        "outputPath": "C:\\Users\\Mathi\\Desktop\\Dev\\untitled-game\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mathi\\AppData\\Roaming\\NuGet\\NuGet.Config"
