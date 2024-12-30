@@ -1,0 +1,38 @@
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]ist/
+[Dd]istro/
+[Dd]ebug-x86/
+[Dd]ebug-x64/
+[Dd]ebug-AnyCPU/
+[Dd]ist/
+[Dd]ist-AnyCPU/
+bin/
+obj/
+ 
+# User-specific files
+.vs/
+.idea/
+.vscode/
+ 
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Tye files (for Tye-based hosting)
+.tye/
+
+# Package files
+packages/
+ 
+# User-specific files from Rider
+.idea/
+ 
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
