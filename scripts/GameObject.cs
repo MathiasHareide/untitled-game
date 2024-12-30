@@ -5,29 +5,26 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-public abstract class GameObject
+public interface IGameObject
 {
-    public Vector2 Position { get; protected set; }
+    Vector2 Position { get; set; }
 
-    public GameObject(Vector2 position)
-    {
-        Position = position;
-    }
-
-    public abstract void Update(GameTime gameTime);
-    public abstract void Draw(SpriteBatch spriteBatch);
+    void Update(GameTime gameTime);
+    void Draw(SpriteBatch spriteBatch);
 }
 
-public class TestGameObject : GameObject
+public class TestGameObject : IGameObject
 {
     private SpriteRenderer _spriteRenderer;
 
-    public TestGameObject(Texture2D texture, Vector2 position) : base(position)
+    public Vector2 Position { get; set; }
+
+    public TestGameObject(Texture2D texture)
     {
         _spriteRenderer = new SpriteRenderer(texture);
     }
 
-    public override void Update(GameTime gameTime)
+    public void Update(GameTime gameTime)
     {
         if (Keyboard.GetState().IsKeyDown(Keys.W))
         {   
@@ -47,7 +44,7 @@ public class TestGameObject : GameObject
         }
     }
 
-    public override void Draw(SpriteBatch spriteBatch)
+    public void Draw(SpriteBatch spriteBatch)
     {
         _spriteRenderer.Draw(spriteBatch, Position, 50);
     }

@@ -7,19 +7,19 @@ using Microsoft.Xna.Framework.Input;
 
 public class SceneManager
 {
-    private List<GameObject> _gameObjects;
+    private List<IGameObject> _gameObjects;
 
     public SceneManager()
     {
-        _gameObjects = new List<GameObject>();
+        _gameObjects = new List<IGameObject>();
     }
 
-    public void AddGameObject(GameObject go)
+    public void AddGameObject(IGameObject go)
     {
         _gameObjects.Add(go);
     }
 
-    public void RemoveGameObject(GameObject go)
+    public void RemoveGameObject(IGameObject go)
     {
         _gameObjects.Remove(go);
     }

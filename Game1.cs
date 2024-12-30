@@ -32,7 +32,7 @@ public class Game1 : Game
         _sceneManager = new SceneManager();
 
         Texture2D texture = Content.Load<Texture2D>("whitePixel");
-        _test = new TestGameObject(texture, Vector2.Zero);
+        _test = new TestGameObject(texture);
         _sceneManager.AddGameObject(_test);
     }
 
