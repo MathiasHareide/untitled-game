@@ -8,7 +8,6 @@ public class Main : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
-    private SceneManager _sceneManager;
     private TestGameObject _test;
 
     public Main()
@@ -27,11 +26,9 @@ public class Main : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-        _sceneManager = new SceneManager();
-
         Texture2D whitePixel = Content.Load<Texture2D>("whitePixel");
         _test = new TestGameObject(whitePixel);
-        _sceneManager.AddGameObject(_test);
+        SceneManager.Instance.AddGameObject(_test);
     }
 
     protected override void Update(GameTime gameTime)
@@ -40,7 +37,7 @@ public class Main : Game
         {
             Exit();
         }
-        _sceneManager.Update(gameTime);
+        SceneManager.Instance.Update(gameTime);
         base.Update(gameTime);
     }
 
@@ -48,7 +45,7 @@ public class Main : Game
     {
         GraphicsDevice.Clear(Color.CornflowerBlue);
         _spriteBatch.Begin();
-        _sceneManager.Draw(_spriteBatch);
+        SceneManager.Instance.Draw(_spriteBatch);
         _spriteBatch.End();
         base.Draw(gameTime);
     }

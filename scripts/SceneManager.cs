@@ -4,12 +4,17 @@ using Microsoft.Xna.Framework.Graphics;
 
 public class SceneManager
 {
-    private List<IGameObject> _gameObjects;
-
-    public SceneManager()
+    public static SceneManager Instance
     {
-        _gameObjects = new List<IGameObject>();
+        get
+        {
+            _instance ??= new SceneManager();
+            return _instance;
+        }
     }
+    private static SceneManager _instance;
+
+    private List<IGameObject> _gameObjects = [];
 
     public void AddGameObject(IGameObject go)
     {
