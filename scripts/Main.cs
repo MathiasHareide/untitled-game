@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -37,6 +37,7 @@ public class Main : Game
         {
             Exit();
         }
+        MouseStateManager.Instance.Update();
         SceneManager.Instance.Update(gameTime);
         base.Update(gameTime);
     }
