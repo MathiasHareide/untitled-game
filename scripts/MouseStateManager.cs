@@ -44,7 +44,7 @@ public class MouseStateManager
         return false;
     }
 
-    private bool StartedPressingLMBThisFrame()
+    public bool StartedPressingLMBThisFrame()
     {
         if (_mouseState.LeftButton == ButtonState.Pressed && _mouseStateLastFrame.LeftButton == ButtonState.Released)
         {
