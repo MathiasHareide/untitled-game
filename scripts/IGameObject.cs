@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using lamo;
+using untitled_game;
 
 public interface IGameObject
 {
@@ -29,27 +30,28 @@ public class TestGameObject(Vector2 position) : IGameObject
     public void Update(GameTime gameTime)
     {
         var dir = new Vector2(0, 0);
+        var speed = 200f;
         if (Keyboard.GetState().IsKeyDown(Keys.W))
         {
-            dir.Y -= 1;
+            dir.Y--;
         }
         else if (Keyboard.GetState().IsKeyDown(Keys.S))
         {
-            dir.Y += 1;
+            dir.Y++;
         }
         if (Keyboard.GetState().IsKeyDown(Keys.A))
         {
-            dir.X -= 1;
+            dir.X--;
         }
         else if (Keyboard.GetState().IsKeyDown(Keys.D))
         {
-            dir.X += 1;
+            dir.X++;
         }
         if (dir != Vector2.Zero)
         {
             dir.Normalize();
         }
-        Position += dir * 5f;
+        Position += dir * (speed * ((float)gameTime.ElapsedGameTime.TotalSeconds));
     }
 
     public void Draw(SpriteBatch spriteBatch)
