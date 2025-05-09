@@ -30,7 +30,7 @@ public class TestGameObject(Vector2 position) : IGameObject
     public void Update(GameTime gameTime)
     {
         var dir = new Vector2(0, 0);
-        var speed = 200f;
+        var speed = Keyboard.GetState().IsKeyDown(Keys.LeftShift) ? 1000f : 200f;
         if (Keyboard.GetState().IsKeyDown(Keys.W))
         {
             dir.Y--;
