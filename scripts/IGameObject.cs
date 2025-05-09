@@ -52,11 +52,48 @@ public class TestGameObject(Vector2 position) : IGameObject
             dir.Normalize();
         }
         Position += dir * (speed * ((float)gameTime.ElapsedGameTime.TotalSeconds));
+        
+        WrapPosition(screenWidth, screenHeight);
+    }
+
+    private void WrapPosition(int screenWidth, int screenHeight)
+    {
+        if (Position.X < 0)
+        {
+            Position += new Vector2 (screenWidth, 0);
+        }
+        else if (Position.X > screenWidth)
+        {
+            Position -= new Vector2 (screenWidth, 0);
+        }
+        if (Position.Y < 0)
+        {
+            Position += new Vector2 (0, screenHeight);
+        }
+        else if (Position.Y > screenHeight)
+        {
+            Position -= new Vector2 (0, screenHeight);
+        }
     }
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        spriteBatch.Draw(Sprite, Position, null, Color.White, 0, Vector2.Zero, _spriteScale, SpriteEffects.None, 0);
+        var viewport = spriteBatch.GraphicsDevice.Viewport;
+        var screenBounds = viewport.Bounds;
+
+        for (var x = -1; x <= 1; x++)
+        {
+            for (var y = -1; y <= 1; y++)
+            {
+                var offset = new Vector2(x * viewport.Width, y * viewport.Height);
+                var drawPos = Position + offset;
+                var spriteRect = new Rectangle((int)drawPos.X, (int)drawPos.Y, SpriteWidth, SpriteHeight);
+                if (screenBounds.Intersects(spriteRect))
+                {
+                    spriteBatch.Draw(Sprite, drawPos, null, Color.White, 0, Vector2.Zero, _spriteScale, SpriteEffects.None, 0);
+                }
+            }
+        }
     }
 
     public void SetSprite(Texture2D sprite)
