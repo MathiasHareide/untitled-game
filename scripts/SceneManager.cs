@@ -26,11 +26,11 @@ public class SceneManager
         _gameObjects.Remove(go);
     }
 
-    public void Update(GameTime gameTime)
+    public void Update(GameTime gameTime, int screenWidth, int screenHeight)
     {
         foreach (var go in _gameObjects)
         {
-            go.Update(gameTime);
+            go.Update(gameTime, screenWidth, screenHeight);
         }
     }
 

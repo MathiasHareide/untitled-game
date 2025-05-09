@@ -14,7 +14,7 @@ public interface IGameObject
     int SpriteHeight { get; }
     int SpriteWidth { get; }
 
-    void Update(GameTime gameTime);
+    void Update(GameTime gameTime, int screenWidth, int screenHeight);
     void Draw(SpriteBatch spriteBatch);
 }
 
@@ -27,7 +27,7 @@ public class TestGameObject(Vector2 position) : IGameObject
 
     private Vector2 _spriteScale;
 
-    public void Update(GameTime gameTime)
+    public void Update(GameTime gameTime, int screenWidth, int screenHeight)
     {
         var dir = new Vector2(0, 0);
         var speed = Keyboard.GetState().IsKeyDown(Keys.LeftShift) ? 1000f : 200f;
@@ -75,7 +75,7 @@ public class ClickableGameObject(Vector2 position) : IGameObject
 
     private Vector2 _spriteScale;
 
-    public void Update(GameTime gameTime)
+    public void Update(GameTime gameTime, int screenWidth, int screenHeight)
     {
         var mouseState = Mouse.GetState();
         if (MouseIsHovering(mouseState) && MouseStateManager.Instance.StartedPressingLMBThisFrame())
@@ -119,7 +119,7 @@ public class DragableGameObject(Vector2 position) : IGameObject
     private Vector2 _mousePositionLastFrame;
     private bool _shouldFollowMousePosition = false;
 
-    public void Update(GameTime gameTime)
+    public void Update(GameTime gameTime, int screenWidth, int screenHeight)
     {
         var mouseState = Mouse.GetState();
         if (ShouldStartFollowingMousePosition())

@@ -9,7 +9,6 @@ public class Main : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
-
     private TestGameObject _test;
     private ClickableGameObject _clickable;
     private DragableGameObject _dragable;
@@ -52,7 +51,7 @@ public class Main : Game
             Exit();
         }
         MouseStateManager.Instance.Update();
-        SceneManager.Instance.Update(gameTime);
+        SceneManager.Instance.Update(gameTime, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
         base.Update(gameTime);
     }
 
