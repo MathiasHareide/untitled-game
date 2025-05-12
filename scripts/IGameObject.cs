@@ -52,7 +52,6 @@ public class TestGameObject(Vector2 position) : IGameObject
             dir.Normalize();
         }
         Position += dir * (speed * ((float)gameTime.ElapsedGameTime.TotalSeconds));
-        
         WrapPosition(screenWidth, screenHeight);
     }
 
@@ -117,7 +116,8 @@ public class ClickableGameObject(Vector2 position) : IGameObject
         var mouseState = Mouse.GetState();
         if (MouseIsHovering(mouseState) && MouseStateManager.Instance.StartedPressingLMBThisFrame())
         {
-            Console.WriteLine("ClickableGameObject has been clicked on.");
+            Console.WriteLine("ClickableGameObject has been clicked on, and removed.");
+            SceneManager.Instance.RemoveGameObject(this);
         }
     }
 

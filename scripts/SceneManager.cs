@@ -15,19 +15,30 @@ public class SceneManager
     private static SceneManager _instance;
 
     private List<IGameObject> _gameObjects = [];
+    private List<IGameObject> _toAdd = [];
+    private List<IGameObject> _toRemove = [];
 
     public void AddGameObject(IGameObject go)
     {
-        _gameObjects.Add(go);
+        _toAdd.Add(go);
     }
 
     public void RemoveGameObject(IGameObject go)
     {
-        _gameObjects.Remove(go);
+        _toRemove.Add(go);
     }
 
     public void Update(GameTime gameTime, int screenWidth, int screenHeight)
     {
+        foreach (var go in _toRemove)
+        {
+            _gameObjects.Remove(go);
+        }
+        _toRemove.Clear();
+
+        _gameObjects.AddRange(_toAdd);
+        _toAdd.Clear();
+
         foreach (var go in _gameObjects)
         {
             go.Update(gameTime, screenWidth, screenHeight);
